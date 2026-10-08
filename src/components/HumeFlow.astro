@@ -1,0 +1,23 @@
+---
+import Diagram from './Diagram.astro';
+import Box from './dg/Box.astro';
+import Arrow from './dg/Arrow.astro';
+const W = 112;
+const xs = [10, 146, 282, 418, 554];
+---
+<Diagram
+	width={680}
+	height={232}
+	label="休謨的情感論：事物（客體）經由人的五官感覺、知性知覺、印象與記憶，引發情緒反應：快樂產生愛，痛苦產生恨。道德判斷出自這種主觀情感。"
+	caption="依 10/6 課堂筆記整理。道德判斷的終點是情感，而不是理性推出的客觀法則。">
+	<path class="ln muted" d="M146,30 V24 H666 V30"></path>
+	<text x={406} y={12} class="sm muted">人（主體）的能力</text>
+	<Box x={xs[0]} y={40} w={W} h={70} title="事物" sub="客體" sub2="例：白板" />
+	<Box x={xs[1]} y={40} w={W} h={70} title="五官感覺" sub="看見它" />
+	<Box x={xs[2]} y={40} w={W} h={70} title="知性知覺" sub="「白板是白的」" sub2="可判斷真假" />
+	<Box x={xs[3]} y={40} w={W} h={70} title="印象・記憶" sub="印象（短期）" sub2="記憶（長期）" />
+	<Box x={xs[4]} y={40} w={W} h={70} v="acc" title="情緒反應" sub="快樂 → 愛" sub2="痛苦 → 恨" />
+	{[0, 1, 2, 3].map((i) => <Arrow x1={xs[i] + W} y1={75} x2={xs[i + 1] - 2} y2={75} />)}
+	<Arrow x1={610} y1={110} x2={610} y2={156} v="acc" />
+	<Box x={150} y={160} w={520} h={58} v="grn" title="道德判斷出自主觀情感" sub="例：做善事被稱讚，所以開心" />
+</Diagram>

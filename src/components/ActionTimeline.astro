@@ -1,0 +1,43 @@
+---
+import Diagram from './Diagram.astro';
+import Box from './dg/Box.astro';
+import Arrow from './dg/Arrow.astro';
+// 依課堂白板（9/15）：一個行為可拆成 人 → 動機 → 手段 → 結果，各派理論看的是不同環節。
+const W = 130;
+const xs = [15, 185, 355, 525];
+const cx = xs.map((x) => x + W / 2);
+---
+<Diagram
+	width={670}
+	height={300}
+	label="一個行為拆成四個環節：人、動機、手段、結果。德行倫理學評價人，動機論評價動機的善惡，結果論評價結果的對錯。"
+	caption="同一個行為，各派理論評價的環節不同。動機以善／惡（good/evil）評價，結果以對／錯（right/wrong）評價。">
+	<!-- 上方：各派理論 -->
+	<text x={cx[0]} y={30} class="acc">德行倫理學</text>
+	<text x={cx[0]} y={52} class="sm muted">這是怎樣的人？</text>
+	<text x={cx[1]} y={30} class="acc">義務論・利他主義</text>
+	<text x={cx[1]} y={52} class="sm muted">動機善不善？</text>
+	<text x={cx[3]} y={30} class="acc">效益主義・利己主義</text>
+	<text x={cx[3]} y={52} class="sm muted">結果對不對？</text>
+	<Arrow x1={cx[0]} y1={66} x2={cx[0]} y2={112} v="acc" />
+	<Arrow x1={cx[1]} y1={66} x2={cx[1]} y2={112} v="acc" />
+	<Arrow x1={cx[3]} y1={66} x2={cx[3]} y2={112} v="acc" />
+
+	<!-- 中間：四個環節 -->
+	<Box x={xs[0]} y={118} w={W} h={64} title="人" sub="品格、習慣" />
+	<Box x={xs[1]} y={118} w={W} h={64} title="① 動機" sub="為何而做・未來式" />
+	<Box x={xs[2]} y={118} w={W} h={64} title="② 手段" sub="怎麼做・理性選擇" />
+	<Box x={xs[3]} y={118} w={W} h={64} title="③ 結果" sub="已發生・過去式" />
+	<Arrow x1={xs[0] + W} y1={150} x2={xs[1] - 4} y2={150} />
+	<Arrow x1={xs[1] + W} y1={150} x2={xs[2] - 4} y2={150} />
+	<Arrow x1={xs[2] + W} y1={150} x2={xs[3] - 4} y2={150} />
+
+	<!-- 下方：課堂上的提問 -->
+	<text x={cx[1]} y={210} class="sm muted">為自己？為他人？</text>
+	<text x={cx[2]} y={210} class="sm muted">走路、騎車或開車？</text>
+	<text x={cx[2]} y={232} class="sm muted">「權」：依情境修正</text>
+	<text x={cx[3]} y={210} class="sm red">要算到 A₁ 還是 Aₙ？</text>
+	<Arrow x1={15} y1={262} x2={655} y2={262} v="muted" />
+	<text x={15} y={284} class="sm muted l">行為之前</text>
+	<text x={650} y={284} class="sm muted r">行為之後（時間）</text>
+</Diagram>

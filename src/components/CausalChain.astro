@@ -1,0 +1,31 @@
+---
+import Diagram from './Diagram.astro';
+import Arrow from './dg/Arrow.astro';
+const nodes = [
+	{ x: 70, t: 'A₁', s: '救起溺水者' },
+	{ x: 210, t: 'A₂', s: '他康復後再犯案' },
+	{ x: 350, t: 'A₃', s: '又有人受害' },
+	{ x: 590, t: 'Aₙ', s: '影響持續擴散' },
+];
+---
+<Diagram
+	width={660}
+	height={150}
+	label="因果遞延難題：一個行為的結果 A1 會引發 A2、A3，一路延伸到 An。效益主義要算到哪一個結果為止？"
+	caption="因果遞延難題（例子為示意）：結果會一路延伸，效益到底要算到哪裡為止？">
+	<text x={330} y={16} class="sm red">效益要算到哪一個結果為止？</text>
+	{
+		nodes.map((n) => (
+			<>
+				<circle class="box" cx={n.x} cy={66} r={26} />
+				<text x={n.x} y={66} font-weight="600">{n.t}</text>
+				<text x={n.x} y={116} class="sm muted">{n.s}</text>
+			</>
+		))
+	}
+	<text x={470} y={66} class="lg muted">⋯</text>
+	<Arrow x1={96} y1={66} x2={182} y2={66} />
+	<Arrow x1={236} y1={66} x2={322} y2={66} />
+	<Arrow x1={376} y1={66} x2={446} y2={66} />
+	<Arrow x1={494} y1={66} x2={562} y2={66} />
+</Diagram>

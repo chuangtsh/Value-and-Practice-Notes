@@ -1,0 +1,44 @@
+---
+import Diagram from './Diagram.astro';
+import Arrow from './dg/Arrow.astro';
+const rows = [
+	['怯懦', '勇敢', '魯莽'],
+	['吝嗇', '慷慨', '浪費'],
+];
+---
+<Diagram
+	width={640}
+	height={305}
+	label="中庸之道：德行介於不及與過之間，例如勇敢介於怯懦與魯莽之間、慷慨介於吝嗇與浪費之間。實踐上不是一次找到固定中點，而是在兩端之間反覆校準，逐漸逼近。"
+	caption="上：德行是「過」與「不及」之間的中道。下：課堂補充──中庸不是固定的正中間，而是在實踐中反覆修正、逐步逼近。">
+	<Arrow x1={40} y1={50} x2={600} y2={50} v="muted" both />
+	<line class="ln acc" x1={320} y1={40} x2={320} y2={60}></line>
+	<text x={40} y={26} class="sm muted l">不及</text>
+	<text x={320} y={26} class="acc">中庸</text>
+	<text x={600} y={26} class="sm muted r">過</text>
+	{
+		rows.map((r, i) => (
+			<>
+				<text x={110} y={88 + i * 32}>{r[0]}</text>
+				<text x={320} y={88 + i * 32} class="acc">{r[1]}</text>
+				<text x={530} y={88 + i * 32}>{r[2]}</text>
+			</>
+		))
+	}
+	<text x={40} y={166} class="sm muted l">實踐中的中庸：一次次修正，逐漸逼近</text>
+	<line class="ln acc dash" x1={320} y1={180} x2={320} y2={300}></line>
+	{
+		[
+			[470, 190, 'A₁ 太過'],
+			[200, 220, 'A₂ 修正過頭'],
+			[400, 250, 'A₃'],
+			[290, 280, 'A₄'],
+		].map(([x, y, t], i, a) => (
+			<>
+				{i > 0 && <line class="ln acc" x1={a[i - 1][0]} y1={a[i - 1][1]} x2={x} y2={y} marker-end="url(#dg-a-acc)" />}
+				<circle class="mk acc" cx={x} cy={y} r={4} />
+				<text x={(x as number) > 320 ? (x as number) + 12 : (x as number) - 12} y={y} class={(x as number) > 320 ? 'sm l' : 'sm r'}>{t}</text>
+			</>
+		))
+	}
+</Diagram>

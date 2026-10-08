@@ -1,0 +1,23 @@
+---
+import Diagram from './Diagram.astro';
+import Box from './dg/Box.astro';
+import Arrow from './dg/Arrow.astro';
+---
+<Diagram
+	width={600}
+	height={240}
+	label="公正的旁觀者：多位旁觀者觀看行為者，各自問自己能否讚許這個行為；旁觀者之間的讚許累積成一般性的道德原則，例如誠實。"
+	caption="道德原則不是由某個人裁定，而是從旁觀者之間的「讚許」逐漸形成。">
+	<Box x={225} y={10} w={150} h={44} title="旁觀者" />
+	<Box x={20} y={90} w={150} h={44} title="旁觀者" />
+	<Box x={430} y={90} w={150} h={44} title="旁觀者" />
+	<Box x={225} y={90} w={150} h={44} v="acc" title="行為者" />
+	<Arrow x1={300} y1={54} x2={300} y2={88} label="讚許嗎？" lx={312} ly={71} lclass="sm l" />
+	<Arrow x1={170} y1={112} x2={223} y2={112} label="讚許嗎？" ly={100} />
+	<Arrow x1={430} y1={112} x2={377} y2={112} label="讚許嗎？" ly={100} />
+	<path class="ln muted" d="M95,134 V204 H148" marker-end="url(#dg-a-muted)"></path>
+	<path class="ln muted" d="M505,134 V204 H452" marker-end="url(#dg-a-muted)"></path>
+	<text x={105} y={168} class="sm muted l">讚許累積</text>
+	<text x={495} y={168} class="sm muted r">讚許累積</text>
+	<Box x={150} y={180} w={300} h={50} v="grn" title="一般性的道德原則" sub="例：「誠實」是道德的" />
+</Diagram>

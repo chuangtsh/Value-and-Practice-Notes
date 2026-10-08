@@ -1,0 +1,20 @@
+---
+import Diagram from './Diagram.astro';
+import Box from './dg/Box.astro';
+import Arrow from './dg/Arrow.astro';
+---
+<Diagram
+	width={640}
+	height={180}
+	label="當代哲學的急轉彎。古希臘羅馬：本質先於存在，人生有普世目標，人照著目標去活。存在主義：存在先於本質，人先存在、先行動，再由行動定義自己。"
+	caption="箭頭方向反過來了：存在主義認為沒有預先寫好的「人該是什麼」，意義要自己開創。">
+	<text x={20} y={50} class="l" font-weight="600">古希臘・羅馬</text>
+	<Box x={140} y={22} w={200} h={56} title="本質" sub="人生有一個普世目標" />
+	<Arrow x1={340} y1={50} x2={418} y2={50} label="先於" />
+	<Box x={420} y={22} w={200} h={56} title="存在" sub="照著目標去活" />
+
+	<text x={20} y={140} class="l acc">存在主義</text>
+	<Box x={140} y={112} w={200} h={56} v="acc" title="存在" sub="先活著、先行動" />
+	<Arrow x1={340} y1={140} x2={418} y2={140} v="acc" label="先於" lclass="sm acc" />
+	<Box x={420} y={112} w={200} h={56} v="acc" title="本質" sub="由一生的行動自己定義" />
+</Diagram>

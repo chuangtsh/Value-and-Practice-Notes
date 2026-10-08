@@ -1,0 +1,24 @@
+---
+// 圖解外框：<figure> + 可橫向捲動的區塊 + 說明文字。
+// width/height 為 viewBox 尺寸；label 給螢幕閱讀器；caption 顯示在圖下方。
+import Markers from './Markers.astro';
+
+interface Props {
+	width: number;
+	height: number;
+	label: string;
+	caption?: string;
+	minWidth?: number;
+}
+const { width, height, label, caption, minWidth } = Astro.props;
+const style = `--dg-max:${width}px;` + (minWidth ? `--dg-min:${minWidth}px;` : `--dg-min:${Math.min(width, 460)}px;`);
+---
+<figure class="dg not-content" style={style}>
+	<div class="dg-scroll">
+		<svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label={label}>
+			<Markers />
+			<slot />
+		</svg>
+	</div>
+	{caption && <figcaption>{caption}</figcaption>}
+</figure>

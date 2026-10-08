@@ -1,0 +1,118 @@
+/* ---------- 色彩與字體 ---------- */
+:root {
+	--sl-font: ui-sans-serif, system-ui, -apple-system, 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+	/* 深色主題（Starlight 預設） */
+	--sl-color-accent-low: #1c2a4d;
+	--sl-color-accent: #6e8fdc;
+	--sl-color-accent-high: #ccd8f6;
+}
+:root[data-theme='light'] {
+	--sl-color-accent-low: #dfe7f8;
+	--sl-color-accent: #2f55a4;
+	--sl-color-accent-high: #1b2f5f;
+}
+
+/* 中文長文的行距 */
+.sl-markdown-content {
+	line-height: 1.85;
+}
+.sl-markdown-content :is(h2, h3) {
+	line-height: 1.4;
+}
+
+/* 開頭的「一句話重點」 */
+.sl-markdown-content .lead {
+	font-size: var(--sl-text-lg);
+	color: var(--sl-color-white);
+	border-inline-start: 4px solid var(--sl-color-accent);
+	padding-inline-start: 1rem;
+}
+
+/* 表格：小螢幕可橫向捲動 */
+.sl-markdown-content table {
+	display: block;
+	overflow-x: auto;
+}
+.sl-markdown-content th {
+	white-space: nowrap;
+}
+
+/* ---------- 自我檢測（details） ---------- */
+.sl-markdown-content details.quiz {
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 0.5rem;
+	padding: 0.5rem 1rem;
+}
+.sl-markdown-content details.quiz summary {
+	cursor: pointer;
+	font-weight: 600;
+	color: var(--sl-color-white);
+}
+.sl-markdown-content details.quiz[open] summary {
+	margin-bottom: 0.5rem;
+}
+
+/* ---------- 圖解（inline SVG） ---------- */
+.dg {
+	margin-block: 1.75rem;
+}
+.dg .dg-scroll {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+.dg svg {
+	display: block;
+	width: 100%;
+	min-width: var(--dg-min, 460px);
+	max-width: var(--dg-max, 680px);
+	height: auto;
+	margin-inline: auto;
+	color: var(--sl-color-white);
+}
+.dg figcaption {
+	margin-top: 0.6rem;
+	font-size: var(--sl-text-sm);
+	color: var(--sl-color-gray-2);
+	text-align: center;
+}
+.dg svg text {
+	font-family: var(--sl-font);
+	fill: currentColor;
+	font-size: 15px;
+	dominant-baseline: middle;
+	text-anchor: middle;
+}
+.dg svg text.sm { font-size: 12.5px; }
+.dg svg text.lg { font-size: 17px; font-weight: 600; }
+.dg svg text.l { text-anchor: start; }
+.dg svg text.r { text-anchor: end; }
+.dg svg text.muted { fill: var(--sl-color-gray-3); }
+.dg svg text.acc { fill: var(--sl-color-accent-high); font-weight: 600; }
+.dg svg text.red { fill: var(--sl-color-red-high); font-weight: 600; }
+.dg svg text.grn { fill: var(--sl-color-green-high); font-weight: 600; }
+
+.dg svg .box { fill: var(--sl-color-gray-6); stroke: var(--sl-color-gray-4); stroke-width: 1.2; }
+.dg svg .box.acc { fill: var(--sl-color-accent-low); stroke: var(--sl-color-accent); stroke-width: 1.6; }
+.dg svg .box.red { fill: var(--sl-color-red-low); stroke: var(--sl-color-red); stroke-width: 1.6; }
+.dg svg .box.grn { fill: var(--sl-color-green-low); stroke: var(--sl-color-green); stroke-width: 1.6; }
+.dg svg .box.ghost { fill: none; stroke-dasharray: 5 4; }
+
+.dg svg .ln { stroke: currentColor; stroke-width: 1.5; fill: none; }
+.dg svg .ln.muted { stroke: var(--sl-color-gray-3); }
+.dg svg .ln.acc { stroke: var(--sl-color-accent); stroke-width: 2; }
+.dg svg .ln.red { stroke: var(--sl-color-red); stroke-width: 2; }
+.dg svg .ln.grn { stroke: var(--sl-color-green); stroke-width: 2; }
+.dg svg .ln.dash { stroke-dasharray: 6 5; }
+
+.dg svg .mk { fill: currentColor; }
+.dg svg .mk.muted { fill: var(--sl-color-gray-3); }
+.dg svg .mk.acc { fill: var(--sl-color-accent); }
+.dg svg .mk.red { fill: var(--sl-color-red); }
+.dg svg .mk.grn { fill: var(--sl-color-green); }
+
+/* 「課堂筆記」用 tip 框，改成綠色以便和其他提示區分 */
+.starlight-aside--tip {
+	--sl-color-asides-text-accent: var(--sl-color-green-high);
+	--sl-color-asides-border: var(--sl-color-green);
+	background-color: var(--sl-color-green-low);
+}

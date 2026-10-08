@@ -1,0 +1,31 @@
+---
+import Diagram from './Diagram.astro';
+import Arrow from './dg/Arrow.astro';
+const pts = [
+	[90, '陪爺爺下棋換糖果'],
+	[250, '跟別人下棋換零用錢'],
+	[440, '「贏棋就滿足了」'],
+	[565, '立志磨練棋藝'],
+] as const;
+---
+<Diagram
+	width={640}
+	height={170}
+	label="麥肯泰爾的阿光下圍棋例子：一開始為了糖果和零用錢下棋，是外在的善；轉折之後，覺得能下棋就很幸福、立志磨練棋藝，是內在的善。"
+	caption="同一個實作（下圍棋），追求的善從「外在」轉為「內在」。外在的善可以當入門的誘因，但德行在內在的善裡養成。">
+	<Arrow x1={20} y1={100} x2={620} y2={100} v="muted" />
+	{
+		pts.map(([x, t]) => (
+			<>
+				<circle class="mk" cx={x} cy={100} r={5} />
+				<text x={x} y={76} class="sm">{t}</text>
+			</>
+		))
+	}
+	<line class="ln acc dash" x1={345} y1={56} x2={345} y2={140}></line>
+	<text x={345} y={44} class="sm acc">轉折</text>
+	<path class="ln red" d="M30,122 V130 H330 V122"></path>
+	<text x={180} y={152} class="sm red">外在的善：為了獎勵而下棋</text>
+	<path class="ln grn" d="M360,122 V130 H620 V122"></path>
+	<text x={490} y={152} class="sm grn">內在的善：下棋本身的卓越與滿足</text>
+</Diagram>

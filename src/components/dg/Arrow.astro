@@ -1,0 +1,29 @@
+---
+// 直線箭頭，可加標籤（預設放在線段中點上方）。both=true 為雙向箭頭。
+interface Props {
+	x1: number;
+	y1: number;
+	x2: number;
+	y2: number;
+	v?: '' | 'muted' | 'acc' | 'red' | 'grn';
+	dash?: boolean;
+	both?: boolean;
+	label?: string;
+	lx?: number;
+	ly?: number;
+	lclass?: string;
+}
+const { x1, y1, x2, y2, v = '', dash = false, both = false, label, lx, ly, lclass = 'sm' } = Astro.props;
+const marker = `url(#dg-a${v ? '-' + v : ''})`;
+const tx = lx ?? (x1 + x2) / 2;
+const ty = ly ?? (y1 + y2) / 2 - 11;
+---
+<line
+	class={`ln ${v} ${dash ? 'dash' : ''}`}
+	x1={x1}
+	y1={y1}
+	x2={x2}
+	y2={y2}
+	marker-end={marker}
+	marker-start={both ? marker : undefined}></line>
+{label && <text x={tx} y={ty} class={lclass}>{label}</text>}

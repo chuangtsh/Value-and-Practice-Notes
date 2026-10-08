@@ -1,0 +1,24 @@
+---
+import Diagram from './Diagram.astro';
+import Box from './dg/Box.astro';
+import Arrow from './dg/Arrow.astro';
+---
+<Diagram
+	width={640}
+	height={235}
+	label="上排：人的需求加上物的性質，產生使用價值。下排：需求改用交換來滿足時，我的米的價值要由他的魚來表現，這是商品價值，也就是價值的異化。"
+	caption="價值不在物本身，而在「需求」與「性質」的關係裡。改用交換來滿足需求時，一物的價值要由另一物來表現，這就是異化。">
+	<Box x={20} y={20} w={140} h={60} title="人的需求" sub="例：我要上網" />
+	<text x={180} y={50} class="lg">+</text>
+	<Box x={200} y={20} w={140} h={60} title="物的性質" sub="例：電腦能連網" />
+	<Arrow x1={340} y1={50} x2={453} y2={50} label="能夠滿足" />
+	<Box x={455} y={20} w={165} h={60} v="acc" title="使用價值" sub="一切價值的起源" />
+
+	<Arrow x1={90} y1={80} x2={90} y2={155} v="muted" dash label="改用交換來滿足" lx={165} ly={118} lclass="sm muted" />
+
+	<Box x={20} y={158} w={140} h={60} title="我的 10 公斤米" sub="我擁有的 A" />
+	<Arrow x1={162} y1={188} x2={198} y2={188} both label="交換" />
+	<Box x={200} y={158} w={140} h={60} title="他的 5 公斤魚" sub="我需要的 B" />
+	<Arrow x1={340} y1={188} x2={453} y2={188} v="red" label="A 的價值由 B 表現" lclass="sm red" />
+	<Box x={455} y={158} w={165} h={60} v="red" title="商品（市場）價值" sub="價值的異化" />
+</Diagram>

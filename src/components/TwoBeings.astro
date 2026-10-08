@@ -1,0 +1,19 @@
+---
+import Diagram from './Diagram.astro';
+import Box from './dg/Box.astro';
+---
+<Diagram
+	width={640}
+	height={205}
+	label="沙特的兩種存在：在己存在是物與身體，充實、就是它自己；對己存有是意識，是虛無。兩者之間有無法跨越的距離。意識總是指向某物，卻需要不是自己的事物支撐，因而產生焦慮與嘔吐。"
+	caption="《存在與虛無》的兩種存在。意識（對己存有）總是指向外物，卻永遠無法成為外物。">
+	<path class="ln acc" d="M480,58 C440,12 200,12 162,56" marker-end="url(#dg-a-acc)"></path>
+	<text x={320} y={18} class="sm acc">意識總是「意識到某物」</text>
+	<Box x={20} y={60} w={220} h={90} title="在己存在" sub="being-in-itself" sub2="物、身體：充實，就是它自己" />
+	<Box x={400} y={60} w={220} h={90} v="acc" title="對己存有" sub="being-for-itself" sub2="意識：虛無，可以被填滿" />
+	<line class="ln muted dash" x1={290} y1={62} x2={290} y2={148}></line>
+	<line class="ln muted dash" x1={350} y1={62} x2={350} y2={148}></line>
+	<text x={320} y={96} class="sm muted">無法</text>
+	<text x={320} y={116} class="sm muted">跨越</text>
+	<text x={320} y={185} class="sm red">意識要靠「不是自己」的事物支撐 → 焦慮、嘔吐</text>
+</Diagram>

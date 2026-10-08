@@ -1,0 +1,19 @@
+---
+import Diagram from './Diagram.astro';
+import Box from './dg/Box.astro';
+import Arrow from './dg/Arrow.astro';
+---
+<Diagram
+	width={640}
+	height={215}
+	label="亞當斯密的同情機制：我以自己的記憶與經驗為材料，透過想像力設身處地想像受苦的他人（如果我是他），因而產生憐憫與同情。"
+	caption="同情不是直接「分享」對方的感受，而是靠想像力設身處地。光有知覺、印象、記憶還不夠。">
+	<path class="ln acc" d="M300,58 C255,12 145,12 100,56" marker-end="url(#dg-a-acc)"></path>
+	<text x={200} y={14} class="sm acc">想像力：「如果我是他……」</text>
+	<Box x={20} y={60} w={150} h={64} title="受苦的他人" sub="例：朋友受刑哀號" />
+	<Box x={250} y={60} w={140} h={64} v="acc" title="我" sub="旁觀的人" />
+	<Box x={470} y={60} w={150} h={64} v="grn" title="憐憫・同情" sub="pity / compassion" />
+	<Arrow x1={390} y1={92} x2={468} y2={92} label="引發" />
+	<Box x={245} y={160} w={150} h={40} title="我的記憶、經驗" />
+	<Arrow x1={320} y1={160} x2={320} y2={126} label="提供想像的材料" lx={404} ly={143} lclass="sm muted l" />
+</Diagram>

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+
+# 老師的講義、簡報屬於老師的著作，不放進（可能公開的）repo；只保留我自己筆記的轉錄
+raw/*
+!raw/text/
+raw/text/*
+!raw/text/筆記-*.transcript.md

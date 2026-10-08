@@ -1,0 +1,24 @@
+---
+import Diagram from './Diagram.astro';
+import Box from './dg/Box.astro';
+import Arrow from './dg/Arrow.astro';
+---
+<Diagram
+	width={640}
+	height={220}
+	label="兩種看待工作的方式。先追求基本價值：樂在工作、做到出類拔萃，金錢名聲隨之而來。本末倒置：只把工作當賺錢手段，導致勞動異化與空虛。"
+	caption="同一份工作，起點不同，終點也不同。附加價值是追求基本價值的副產品，不能倒過來當目標。">
+	<text x={20} y={20} class="sm grn l">先追求基本價值</text>
+	<Box x={20} y={34} w={180} h={60} v="grn" title="樂在工作本身" sub="基本價值" />
+	<Box x={240} y={34} w={160} h={60} title="做到出類拔萃" sub="成為稀缺人才" />
+	<Box x={440} y={34} w={180} h={60} title="金錢、名聲" sub="附加價值，隨之而來" />
+	<Arrow x1={200} y1={64} x2={238} y2={64} />
+	<Arrow x1={400} y1={64} x2={438} y2={64} />
+
+	<text x={20} y={134} class="sm red l">本末倒置</text>
+	<Box x={20} y={148} w={180} h={60} v="red" title="只把工作當賺錢手段" sub="只剩商品價值" />
+	<Box x={240} y={148} w={160} h={60} title="勞動的異化" sub="把自己商品化" />
+	<Box x={440} y={148} w={180} h={60} title="空虛、疏離感" sub="感受不到幸福" />
+	<Arrow x1={200} y1={178} x2={238} y2={178} />
+	<Arrow x1={400} y1={178} x2={438} y2={178} />
+</Diagram>

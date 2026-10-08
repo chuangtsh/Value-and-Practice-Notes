@@ -1,0 +1,52 @@
+---
+title: 價值與實踐・讀書筆記
+description: 清大通識「價值與實踐」的課程講義與課堂筆記整理，用圖解和論證圖幫你讀懂倫理學。
+tableOfContents: false
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+{/* 元件的 href 不經過 remark 外掛，需手動加上 base 路徑 */}
+export const u = (path) => import.meta.env.BASE_URL.replace(/\/$/, '') + path;
+
+<p class="lead">這裡整理了「價值與實踐」（洪巳軒老師）的講義、簡報和我自己的課堂筆記。每一頁都以一個主題為單位，先講重點，再拆論證，最後附上自我檢測。</p>
+
+## 怎麼讀這個網站
+
+- **照順序讀**：左側目錄的順序就是上課的順序，從「價值是什麼」一路講到存在主義。
+- **趕著考試**：直接看[考前複習](/review/compare/)。期中、期末都是**申論題**，各占 50%。
+- **頁面裡的標記**：
+  - 綠色框「**課堂筆記**」：老師上課補充、講義裡沒有的內容。
+  - 橘色框「**常見誤解**」：容易寫錯的地方。
+  - 「**自我檢測**」：點開才看得到參考答案，先自己想再看。
+  - 圖解、論證圖都從講義和筆記整理而來。
+
+## 內容一覽
+
+<CardGrid>
+	<LinkCard title="一、價值是什麼？" href={u('/value/what-is-value/')} description="使用價值與商品價值、異化，以及「為什麼工作」。（9/8）" />
+	<LinkCard title="倫理學地圖" href={u('/ethics/map/')} description="一個行為拆成人、動機、手段、結果：各派理論在評價哪一段？（9/15）" />
+	<LinkCard title="利己主義" href={u('/ethics/egoism/')} description="心理利己 vs. 倫理利己、享樂主義、亞當斯密的同情與公正旁觀者。（9/22）" />
+	<LinkCard title="利他主義" href={u('/ethics/altruism/')} description="利他行為的五個特點、辛格與伊克族、有效利他主義。（9/22）" />
+	<LinkCard title="效益主義" href={u('/ethics/utilitarianism/')} description="邊沁與彌爾：最大多數人的最大幸福，以及它的四大難題。（9/15、9/22）" />
+	<LinkCard title="康德義務論" href={u('/ethics/kant/')} description="善意志、定言令式與道德三法則。（9/29）" />
+	<LinkCard title="德行倫理學" href={u('/critique/virtue/')} description="亞里斯多德的中庸、麥肯泰爾的「實作」與內在的善。（9/29）" />
+	<LinkCard title="道德情感論" href={u('/critique/sentiment/')} description="休謨：道德判斷出自情感，而不是理性。（10/6）" />
+	<LinkCard title="對道德的懷疑" href={u('/skepticism/doubting-morality/')} description="蓋吉的戒指、韓非、道德相對主義、莊子。" />
+	<LinkCard title="存在主義" href={u('/skepticism/existentialism/')} description="沙特的自由與責任、卡繆的荒謬與反抗。（10/6）" />
+	<LinkCard title="現象學" href={u('/skepticism/phenomenology/')} description="海德格的本真存有與決斷、高達美的參與。" />
+	<LinkCard title="考前複習" href={u('/review/compare/')} description="理論比較總表、申論題練習、名詞對照。" />
+</CardGrid>
+
+## 資料來源
+
+| 類型 | 檔案 |
+| --- | --- |
+| 課綱 | 價值與實踐課綱 1151 |
+| 講義 | 價值與實踐（導論）、西方倫理學簡介、對於道德的懷疑 |
+| 簡報 | 對於道德的懷疑（修訂版）：兼論存在主義與現象學 |
+| 課堂筆記 | 筆記-1（9/8～10/6，共五週） |
+
+:::note[關於這份整理]
+這是學生的個人讀書筆記，不是老師的官方教材。內容以講義為準；標示「課堂筆記」的部分是上課聽講的紀錄，可能有聽錯或簡化的地方。
+:::

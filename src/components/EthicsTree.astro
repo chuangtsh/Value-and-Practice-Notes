@@ -1,0 +1,24 @@
+---
+import Diagram from './Diagram.astro';
+import Box from './dg/Box.astro';
+---
+<Diagram
+	width={660}
+	height={310}
+	label="哲學四大基礎：形上學、知識論、倫理學、邏輯。倫理學分為古典的德行倫理學與近現代的規範倫理學；規範倫理學再分為動機論（義務論、利他主義）與結果論（效益主義、利己主義）。"
+	caption="本課程的倫理學地圖（依 9/15 課堂筆記）。">
+	<Box x={255} y={10} w={150} h={40} title="哲學四大基礎" />
+	<path class="ln muted" d="M330,50 V65 M90,65 H570 M90,65 V80 M250,65 V80 M410,65 V80 M570,65 V80"></path>
+	<Box x={35} y={80} w={110} h={40} title="形上學" />
+	<Box x={195} y={80} w={110} h={40} title="知識論" />
+	<Box x={355} y={80} w={110} h={40} v="acc" title="倫理學" />
+	<Box x={515} y={80} w={110} h={40} title="邏輯" />
+
+	<path class="ln muted" d="M410,120 V140 M290,140 H530 M290,140 V160 M530,140 V160"></path>
+	<Box x={200} y={160} w={180} h={50} title="德行倫理學" sub="古典・virtue ethics" />
+	<Box x={440} y={160} w={200} h={50} title="規範倫理學" sub="近現代・normative ethics" />
+
+	<path class="ln muted" d="M540,210 V228 M440,228 H587 M440,228 V245 M587,228 V245"></path>
+	<Box x={370} y={245} w={140} h={54} title="動機論" sub="義務論・利他主義" />
+	<Box x={518} y={245} w={138} h={54} title="結果論" sub="效益主義・利己主義" />
+</Diagram>

@@ -1,0 +1,101 @@
+---
+// 論證圖：前提 → 結論。premises 可帶 kind: 'hidden' 表示文本沒明說、但論證需要的前提。
+interface Premise {
+	text: string;
+	kind?: 'hidden';
+}
+interface Props {
+	title?: string;
+	premises: (string | Premise)[];
+	conclusion: string;
+	source?: string;
+}
+const { title, premises, conclusion, source } = Astro.props;
+const items = premises.map((p) => (typeof p === 'string' ? { text: p } : p));
+---
+<figure class="argmap not-content" aria-label={title ? `論證：${title}` : '論證'}>
+	{title && <p class="argmap-title">{title}</p>}
+	<ol class="argmap-premises">
+		{
+			items.map((p, i) => (
+				<li class:list={['argmap-card', p.kind]}>
+					<span class="argmap-tag">{p.kind === 'hidden' ? '隱藏前提' : `前提 ${i + 1}`}</span>
+					<span set:html={p.text} />
+				</li>
+			))
+		}
+	</ol>
+	<div class="argmap-therefore" aria-hidden="true"><span>∴ 所以</span></div>
+	<div class="argmap-card conclusion">
+		<span class="argmap-tag">結論</span>
+		<span set:html={conclusion} />
+	</div>
+	{source && <figcaption>{source}</figcaption>}
+</figure>
+
+<style>
+	.argmap {
+		margin-block: 1.75rem;
+		padding: 1rem;
+		border: 1px solid var(--sl-color-gray-5);
+		border-radius: 0.75rem;
+		background: var(--sl-color-gray-7, var(--sl-color-black));
+	}
+	.argmap-title {
+		margin: 0 0 0.75rem;
+		font-weight: 700;
+		color: var(--sl-color-white);
+	}
+	.argmap-premises {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.6rem;
+		grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+	}
+	.argmap-card {
+		margin: 0;
+		padding: 0.65rem 0.85rem;
+		border: 1px solid var(--sl-color-gray-4);
+		border-radius: 0.5rem;
+		background: var(--sl-color-gray-6);
+		line-height: 1.7;
+		color: var(--sl-color-gray-1);
+	}
+	.argmap-card.hidden {
+		border-style: dashed;
+		background: transparent;
+	}
+	.argmap-card.conclusion {
+		border: 2px solid var(--sl-color-accent);
+		background: var(--sl-color-accent-low);
+		color: var(--sl-color-white);
+	}
+	.argmap-tag {
+		display: block;
+		font-size: var(--sl-text-xs);
+		font-weight: 700;
+		letter-spacing: 0.05em;
+		color: var(--sl-color-gray-3);
+	}
+	.conclusion .argmap-tag {
+		color: var(--sl-color-accent-high);
+	}
+	.argmap-therefore {
+		display: flex;
+		justify-content: center;
+		margin-block: 0.4rem;
+		font-size: var(--sl-text-sm);
+		font-weight: 600;
+		color: var(--sl-color-accent-high);
+	}
+	.argmap-therefore span::before {
+		content: '↓ ';
+	}
+	.argmap figcaption {
+		margin-top: 0.6rem;
+		font-size: var(--sl-text-xs);
+		color: var(--sl-color-gray-3);
+	}
+</style>
