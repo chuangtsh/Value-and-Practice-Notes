@@ -17,3 +17,7 @@
 ## [2026-10-09] edit | 去 AI 味
 
 - 依 speak-human-tw 審查結果，經使用者確認後修改 8 處用語（利己、地圖、利他、價值、現象學、存在主義 ×2、課綱）。
+
+## [2026-10-09] setup | 連結檢查
+
+- 新增 `scripts/check-links.mjs`（`npm run check-links`），並加進 GitHub Actions：站內連結或錨點壞掉時建置失敗、不部署。

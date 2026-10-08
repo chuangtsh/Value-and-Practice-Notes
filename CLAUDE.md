@@ -59,14 +59,14 @@ LOG.md            更新紀錄（只往後追加）
 ## 驗證
 
 ```sh
-npm run build                                         # 必須零錯誤（i18n 與 404 的 WARN 可忽略）
-GITHUB_REPOSITORY=x/value_practice npm run build      # 模擬 GitHub Pages 子路徑
+npm run build && npm run check-links                  # 建置零錯誤（i18n 與 404 的 WARN 可忽略）、站內連結與錨點全部有效
+export GITHUB_REPOSITORY=chuangtsh/Value-and-Practice-Notes   # 模擬 GitHub Pages 子路徑，再跑一次上一行
 npm run preview                                       # http://localhost:4321
 google-chrome --headless=new --no-sandbox --window-size=1280,1400 --screenshot=out.png http://localhost:4321/<path>/
 # 深色主題加 --force-dark-mode；手機寬度用 --window-size=400,2400
 ```
 
-檢查重點：站內連結與錨點全部有效（在根目錄與子路徑兩種 build 都要通過）、圖解在兩種主題下都清楚。
+檢查重點：`check-links` 在根目錄與子路徑兩種 build 都要通過（GitHub Actions 部署前也會自動跑，失敗就不部署）、圖解在兩種主題下都清楚。
 
 ## 部署
 
